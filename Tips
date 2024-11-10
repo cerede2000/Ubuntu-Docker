@@ -4,6 +4,14 @@ docker compose pull
 docker compose up -d --remove-orphans
 docker image prune
 docker compose --env-file ../global.env up -d
+
+systemctl stop docker
+touch /etc/docker/daemon.json
+nano /etc/docker/daemon.json
+{
+ "data-root": "/mnt/new"
+}
+systemctl start docker
 ###
 
 # 
