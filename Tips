@@ -3,10 +3,12 @@
 docker compose pull
 docker compose up -d --remove-orphans
 docker image prune
+docker compose --env-file ../global.env up -d
 ###
 
 # 
 hostname -I
+ncdu
 
 # Disable CTRL+ALT+SUPPR reboot
 sudo systemctl mask ctrl-alt-del.target
