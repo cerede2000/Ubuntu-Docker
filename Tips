@@ -4,3 +4,41 @@ docker compose pull
 docker compose up -d --remove-orphans
 docker image prune
 ###
+
+# 
+hostname -I
+
+# Disable CTRL+ALT+SUPPR reboot
+sudo systemctl mask ctrl-alt-del.target
+sudo systemctl daemon-reload
+
+#1 - install ubuntu
+apt update
+apt upgrade
+apt autoremove
+
+#2 - remove cloud-init
+apt purge cloud-init -y
+rm -rf /etc/cloud && sudo rm -rf /var/lib/cloud/
+reboot now
+
+#3 - install cockpit
+apt install cockpit
+
+#4 - systemctl enable NetworkManager --now
+#5 - systemctl disable systemd-networkd.socket --now
+#6 - systemctl disable systemd-networkd --now
+#7 - nano /etc/netplan/*.yaml
+network:
+  version: 2
+  renderer: NetworkManager
+
+netplan generate
+netplan apply
+
+systemctl enable NetworkManager.service
+systemctl restart NetworkManager.service
+
+# Cockipt Navigator plugin
+https://github.com/45Drives/cockpit-navigator#manually
+
