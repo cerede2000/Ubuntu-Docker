@@ -55,3 +55,12 @@ systemctl restart NetworkManager.service
 # Cockipt Navigator plugin
 https://github.com/45Drives/cockpit-navigator#manually
 
+
+# SWAP
+Turn off all running swap processes: swapoff -a
+Resize swap fallocate -l 1G /swapfile (change 1G to the gigabyte size you want it to be)
+CHMOD swap: chmod 600 /swapfile
+Make file usable as swap mkswap /swapfile
+Active the swap file swapon /swapfile
+
+free -m
