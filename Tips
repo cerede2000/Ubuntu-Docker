@@ -18,6 +18,9 @@ systemctl start docker
 hostname -I
 ncdu
 
+apt install nano
+apt install network-manager
+
 # Disable CTRL+ALT+SUPPR reboot
 sudo systemctl mask ctrl-alt-del.target
 sudo systemctl daemon-reload
