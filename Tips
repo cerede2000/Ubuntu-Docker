@@ -55,6 +55,14 @@ systemctl restart NetworkManager.service
 # Cockipt Navigator plugin
 https://github.com/45Drives/cockpit-navigator#manually
 
+# Cockpit Docker plugin
+sudo apt install -y nodejs gettext make
+wget https://github.com/chabad360/cockpit-docker/releases/download/16/cockpit-docker-16.tar.xz
+tar xvf cockpit-docker-16.tar.xz
+cd cockpit-docker
+export NODE_ENV=production
+sudo make install PREFIX="/usr"
+sudo systemctl restart cockpit.{socket,service}
 
 # SWAP
 Turn off all running swap processes: swapoff -a
