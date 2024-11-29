@@ -72,3 +72,7 @@ Make file usable as swap mkswap /swapfile
 Active the swap file swapon /swapfile
 
 free -m
+
+#Certificate local
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout smtp.key -out smtp.crt -subj "/CN=smtp" -addext "subjectAltName=DNS:smtp,DNS:localhost"
+
