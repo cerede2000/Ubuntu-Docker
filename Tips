@@ -75,4 +75,4 @@ free -m
 
 #Certificate local
 openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout smtp.key -out smtp.crt -subj "/CN=smtp" -addext "subjectAltName=DNS:smtp,DNS:localhost"
-
+ppenssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ldap.key -out ldap.crt -subj "/CN=ldap" -addext "subjectAltName=IP:192.168.1.17,DNS:ldap,DNS:localhost" -addext "extendedKeyUsage=serverAuth" -addext "keyUsage=critical,keyCertSign"
