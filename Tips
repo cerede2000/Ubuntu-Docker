@@ -64,6 +64,15 @@ export NODE_ENV=production
 sudo make install PREFIX="/usr"
 sudo systemctl restart cockpit.{socket,service}
 
+# Cockpit.conf
+[WebService]
+LoginTitle=Benjy Home Server
+LoginTo=false
+AllowUnencrypted=true
+
+[Session]
+IdleTimeout=0
+
 # SWAP
 Turn off all running swap processes: swapoff -a
 Resize swap fallocate -l 1G /swapfile (change 1G to the gigabyte size you want it to be)
