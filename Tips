@@ -73,6 +73,9 @@ AllowUnencrypted=true
 [Session]
 IdleTimeout=0
 
+sudo systemctl daemon-reload
+sudo systemctl restart cockpit.socket
+
 # SWAP
 Turn off all running swap processes: swapoff -a
 Resize swap fallocate -l 1G /swapfile (change 1G to the gigabyte size you want it to be)
