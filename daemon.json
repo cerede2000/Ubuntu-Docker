@@ -1,3 +1,6 @@
-{ 
-   "data-root": "/homeserver/docker-root"
+{
+  "data-root": "/server/docker",
+  "default-address-pools": [
+    { "base": "10.248.0.0/13", "size": 24 }
+  ]
 }
